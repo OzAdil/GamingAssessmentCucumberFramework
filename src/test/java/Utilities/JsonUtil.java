@@ -33,7 +33,6 @@ public class JsonUtil {
     }
 
     //Let's create a method to convert Json To Java Object (De-Serialization)
-    //Generic Method: The method whose return type is selected when you use it
     public static <T> T convertJsonToJava(String json, Class<T> cls) {
 
         T javaResult = null;

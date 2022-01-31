@@ -54,11 +54,12 @@ public class RemainingCards {
                     .when()
                     .queryParam("count", randomNum)
                     .get(ConfigurationReader.getProperty("draw_card"), deckId);
-
+            //Assert status Code
             response.then().assertThat().statusCode(HttpStatus.SC_OK);
-
+            //Add first card code the list
             listOfFirstDrawCard.add(response.jsonPath().getString("cards[0].code"));
         }
+        //Remaining card after draw
         beforeReturnRemainingCardNum = response.jsonPath().getInt("remaining");
 
     }
@@ -66,6 +67,7 @@ public class RemainingCards {
     @Given("Return the first drawn card back to the deck")
     public void return_the_first_drawn_card_back_to_the_deck() {
 
+        //Remove brackets and space in list
         String str=listOfFirstDrawCard.
                 toString().
                 replace("[","").
@@ -78,8 +80,10 @@ public class RemainingCards {
                 .queryParam("cards", str)
                 .get(ConfigurationReader.getProperty("return_firstDrawCard"), deckId);
 
+        //Assert status Code
         response.then().assertThat().statusCode(HttpStatus.SC_OK);
 
+        //Remaining card after returning first cards
         afterReturnRemainingCardNum = response.jsonPath().getInt("remaining");
 
 
