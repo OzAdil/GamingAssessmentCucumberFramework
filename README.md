@@ -32,7 +32,7 @@ Runner Class
 The Test Runner File uses the @RunWith() Annotation from JUnit for executing tests. It also uses the @CucumberOptions Annotation to define the location of feature files, step definitions, reporting integrations, etc.
 
 
-Jenkins
+Jenkins; 
 Jenkins is a popular CI orchestration tool. It provides numerous plugins for integration with multiple test automation tools and frameworks into the test pipeline. When it comes to test automation, Jenkins provides plugins that help run test suites, gather and dashboard results, and provide details on failures.For this project configurated the Jenkins pipeline and once team members push code it will automatically run test cases.
 
 
